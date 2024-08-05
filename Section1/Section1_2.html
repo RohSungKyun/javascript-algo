@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 삼각형 판별하기
+            // 길이가 가장긴 변을 판별하고 긴변 < 나머지 변의 합일 경우 yes를 출력한다.
+            function solution(a, b, c){
+                let answer="YES", max;
+                let total = a + b + c;
+                if (a < b) {
+                    max = b
+                } else {
+                    max = a
+                }
+                if (max < c){
+                    max = c
+                } // 가장 큰 변을 구하는 조건문
+                if(max >= (total-max)){ //삼각형의 조건
+                    answer = "NO"
+                }
+
+                return answer;
+            }
+
+            console.log(solution(6, 7, 11));
+        </script>
+    </body>
+</html>
