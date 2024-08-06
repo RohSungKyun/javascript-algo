@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 가장 긴 문자열
+            function solution(n, arr){
+                let answer="";
+                for (i=0; i<arr.length; i++){
+                    if (arr[i].length > answer.length){
+                        answer = arr[i];
+                    }
+                }
+                return answer;
+            }
+            let arr = ["teacher", "time", "student", "beautiful", "good"];
+            console.log(solution(5, arr));
+        </script>
+    </body>
+</html>
