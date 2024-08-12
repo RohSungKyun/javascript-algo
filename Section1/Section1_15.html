@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 가운데 문자를 출력하는 프로그램
+            function solution(str){
+                let answer="";
+                let mid = Math.floor(str.length/2);
+                let idx = 0;
+                if (str.length%2 === 0){ //짝수일 경우
+                answer = str.substring(mid-1, mid+1);
+                } else{
+                    answer = str.substring(mid, mid+1);
+                }
+
+                return answer;
+            }
+            let str = "good"
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
