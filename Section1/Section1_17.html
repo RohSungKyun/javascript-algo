@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 가운데 문자를 출력하는 프로그램
+            function solution(n, words){
+                let answer = [];
+                for (let word of words){
+                    if(!answer.includes(word)){ // ans에 현재 문자열이 존재하지 않을때만 push
+                        answer.push(word);
+                    }
+                }
+                return answer;
+            }
+            let words = ["good", "time", "good", "time", "student"];
+            console.log(solution(5, words));
+        </script>
+    </body>
+</html>
