@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, arr){ // 앞에서 다음 순서로 넘어갈때 키가 작다면 넘긴다.
+                let answer=0;
+                let max_height=Number.MIN_SAFE_INTEGER;
+                for (let i=0; i<arr.length; i++){
+                    if (i===0){
+                        answer+=1;
+                        max_height=arr[0];
+                    }
+                    else{
+                        if(arr[i]>arr[i-1] && arr[i] > max_height){
+                            max_height=arr[i];
+                            answer+=1;
+                        }
+                    }
+                }
+                return answer;
+            }
+
+            let arr=[150, 111, 112, 182, 114];
+            console.log(solution(5, arr));
+        </script>
+    </body>
+</html>
