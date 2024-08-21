@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){ // 연속으로 맞히는 경우 보너스를 계산해야 함
+                let answer=0;
+                let plus = 1;
+                for (let i =0; i<arr.length; i++){
+                    if (arr[i]!==0 && arr[i]===1){
+                        if(arr[i-1]===1){
+                            answer+=plus;
+                            plus+=1;
+                        } // 이전 문제도 맞혔을 경우 플러스 점수
+                        else{
+                            answer+=1;
+                            plus+=1;
+                        }
+                    }
+                    else{
+                        plus=1; //초기화
+                    }
+                }
+                
+                
+                return answer;
+            }
+
+            let score = [1, 0, 1, 1, 1, 1, 0, 1, 1, 0]
+            console.log(solution(score));
+        </script>
+    </body>
+</html>
