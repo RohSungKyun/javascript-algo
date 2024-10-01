@@ -13,7 +13,7 @@
                 let flag = 0;
                 for (i=0; i<arr.length; i++){
                     for (j=i+1; j<arr.length; j++){
-                        if(total - (arr[i] + arr[j]) === 100){
+                        if(total - (arr[i] + arr[j]) === 100){ // 특정 두 값을 뺐을때 100이 되는 경우를 찾기
                             arr.splice(j, 1);
                             arr.splice(i, 1);
                             flag = 1;
