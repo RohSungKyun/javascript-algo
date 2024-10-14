@@ -11,3 +11,8 @@ function solution(arr)
     
     return answer;
 }
+
+// 다른 사람의 풀이, filter를 활용한 간단한 풀이가 존재했다.
+// function solution(arr){
+//     return arr.filter((val, idx) => val !== arr[idx+1]);
+// }
