@@ -8,3 +8,4 @@ function solution(phone_book) {
     }
     return answer;
 }
+// 두 번째 풀이
