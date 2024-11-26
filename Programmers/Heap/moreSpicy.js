@@ -76,6 +76,24 @@ class MinHeap {
 }
 
 function solution(scoville, K) {
-    var answer = 0;
-    return answer;
+    let count = 0;
+    const foodList = new MinHeap();
+    for (let food of scoville) {
+        foodList.push(food); // 최소 힙에 값을 집어 넣는다.
+    }
+    while(foodList.size() > 1){ // 하나만 남기 전까지 섞기를 반복한다.
+        if (foodList.heap[0] >= K) {
+            return count;
+        }
+        let temp = foodList.pop(); // 가장 안매운 음식
+        let newScoville = temp + (foodList.pop() * 2);
+        foodList.push(newScoville);
+        count+=1;
+
+    }
+    if (foodList.size() === 1 && foodList.heap[0] > K) {
+        return count;
+    }
+    return -1;
 }
+
