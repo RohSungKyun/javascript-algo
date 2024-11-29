@@ -8,7 +8,37 @@ class Heap {
     constructor() {
         this.heap = [];
     }
+    size() {
+        return this.heap.length;
+    }
+    
+    getParentIndex(index) {
+        return (index-1)/2;
+    }
+    getLeftCihldIndex(index) {
+        return (index*2) + 1;
+    }
+    getRightChildIndex(index) {
+        return (index*2) + 2;
+    }
 
+    swap(index1, index2) {
+        const temp = this.heap[index1];
+        this.heap[index1] = this.heap[index2];
+        this.heap[index2] = temp;
+    }
+
+    push(value) {
+        this.heap.push(value);
+        let currentIndex = this.heap.length-1;
+        let parentIndex = this.getParentIndex(currentIndex);
+
+        while(currentIndex > 0 && this.heap[parentIndex] > this.heap[currentIndex]) {
+            this.swap(currentIndex, parentIndex);
+            let currentIndex = parentIndex;
+            let parentIndex = this.getParentIndex(currentIndex);
+        }
+    }
 
 
 }
