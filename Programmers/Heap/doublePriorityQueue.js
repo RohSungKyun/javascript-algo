@@ -2,7 +2,7 @@
 // D1 : 큐에서 최댓값을 삭제한다.
 // D-1 : 큐에서 최솟값을 삭제한다.
 // 결과값으로 큐가 비어있으면 [0,0]을, 비어있지 않으면 [최댓값, 최솟값]을 return 하도록 구현
-// 아이디어1 : 최소힙, 최대힙을 한 클래스 안에 동시에 구현하고 하나의 힙을 공유한다.
+// 아이디어1 : 최소힙을 이용하며 최댓값을 삭제하는 메서드를 추가한다.
 
 class Heap {
     constructor() {
@@ -43,13 +43,13 @@ class Heap {
         return this.heap.length === 0; // 힙이 비어있으면 true를 반환
     }
     // pop 메서드는 힙에서 가장 작은 요소를 꺼내고 제거
-    pop() {
+    popMinimum() {
         if (this.isEmpty()) return null; // 힙이 비어있을때
         if (this.heap.length === 1) return this.heap.pop(); // 힙에 요소가 하나밖에 없다면 요소 제거 후 반환
 
         const root = this.heap[0]; // 루트 노드를 변수에 저장하고 마지막 요소를 루트로 이동
         this.heap[0] = this.heap.pop();
-
+        // 힙 속성을 복원
         let currentIndex = 0;
         let leftChildindex = this.getLeftChildIndex(currentIndex);
         let rightChildIndex = this.getRightChildIndex(currentIndex);
@@ -69,7 +69,10 @@ class Heap {
             rightChildIndex = this.getRightChildIndex(currentIndex);
         }
         return root;
-
+    }
+    popMaximum() {
+        if(this.isEmpty()) return null;
+        return this.heap.pop(); // 마지막 노드가 항상 최대값이므로 바로 제거한다.
     }
 
 }
