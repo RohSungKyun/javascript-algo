@@ -61,10 +61,27 @@ class MinHeap{
 }
 
 function solution(jobs) {
-    const heap = new minHeap();
-    for (let job of jobs){
-        heap.push(job);
+    const minHeap = new MinHeap();
+    const count = jobs.length;
+    jobs.sort((a, b) => a[0] - b[0]); // 요청 시간을 기준으로 정렬
+
+    let time = 0;
+    let complete = 0;
+    let total = 0;
+
+    while(minHeap.size() || jobs.length) {
+        while(jobs.length) {
+            if (time === jobs[0][0]) {
+                minHeap.heapPush(jobs.shift());
+            } else break;
+        }
+        if (minHeap.size() && time >= complete ) {
+            const task = minHeap.heapPop();
+            complete = task[1] + time;
+            total = complete - task[0];
+        }
+        time++;
     }
-    var answer = 0;
-    return answer;
+
+    return Math.floor(total/count);
 }
