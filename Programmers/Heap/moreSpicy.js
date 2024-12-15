@@ -34,7 +34,7 @@ class MinHeap {
         let currentindex = this.heap.length - 1;
         let parentIndex = this.getParentIndex(currentindex);
 
-        // 삽입된 요소가 루트노드가 아니고, 부모 노드의 값이 삽입된 요소의 값보다 크다면 교호나
+        // 삽입된 요소가 루트노드가 아니고, 부모 노드의 값이 삽입된 요소의 값보다 크다면 교환
         while(currentindex > 0 && this.heap[parentIndex] > this.heap[currentindex]) {
             this.swap(currentindex, parentIndex);
             currentindex = parentIndex;

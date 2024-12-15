@@ -1,6 +1,6 @@
 function solution(distance, rocks, n) {
     var answer = 0;
-    const sorted = rocks.sort((a, b) => a-b);
+    rocks.sort((a, b) => a-b);
     let start = 1;
     let end = distance;
 
@@ -19,7 +19,7 @@ function solution(distance, rocks, n) {
         if (remove > n) {
             end = mid -1;
         } else {
-            start = mid-1;
+            start = mid +1;
             answer = Math.max(answer, start);
         }
     }
