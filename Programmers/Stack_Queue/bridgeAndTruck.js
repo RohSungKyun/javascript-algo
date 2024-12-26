@@ -1,5 +1,5 @@
 // 다리에 완전히 오르지 않은 트럭은 무시
-// 모든 트럭은 weigth 이하이다.
+// 모든 트럭은 weight 이하이다.
 // 트럭은 동시에 bridge_length만큼 올라갈 수 있다.
 function solution(bridge_length, weight, truck_weights) {
     var answer = 0;
