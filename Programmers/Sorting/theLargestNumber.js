@@ -19,3 +19,15 @@ function solution(numbers) {
 
   return answer[0] === '0' ? '0' : answer;
 }
+
+function solution2(numbers) {
+  const strings = numbers.map(number => String(number));
+  const maxValue = strings.sort((a, b) => (b+a) - (a+b)).join('');
+  let answer;
+  if(maxValue[0] !== '0') {
+    answer = maxValue;
+  } else{
+    answer = '0';
+  }
+  return answer;
+}
