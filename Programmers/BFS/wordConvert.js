@@ -20,7 +20,7 @@ function solution(begin, target, words) {
     if(current === target) break;
     
     for(const word of words) {
-      if(isConnected(word, cur) && !visited[word]) { // 연결이 되어 있고 아직 방문하지 않은 단어
+      if(isConnected(word, current) && !visited[word]) { // 연결이 되어 있고 아직 방문하지 않은 단어
         visited[word] = visited[current] + 1;
         queue.push(word);
       }
